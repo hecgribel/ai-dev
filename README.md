@@ -1,4 +1,4 @@
-# AI Specifications & Development Rules
+# AI Development
 
 This repository contains a comprehensive set of development rules, standards, and AI agent configurations designed to work seamlessly with multiple AI coding copilots. The setup is portable and can be imported into any project to provide consistent, high-quality AI-assisted development.
 
@@ -6,20 +6,34 @@ This repository contains a comprehensive set of development rules, standards, an
 
 ```
 .
-├── ai-specs/                    # Main directory with all rules and configurations
-│   ├── specs/                   # Development standards and specifications
-│   │   ├── base-standards.mdc   # Core development rules (single source of truth)
-│   │   ├── backend-standards.mdc
-│   │   ├── frontend-standards.mdc
-│   │   ├── documentation-standards.mdc
-│   │   ├── api-spec.yml         # OpenAPI specification
-│   │   ├── data-model.md        # Database and domain models
-│   │   ├── development_guide.md
-│   │   └── prompts.md           # Reusable prompt templates
-│   └── changes/                 # Feature implementation plans
-│       └── SCRUM-10_backend.md  # Demo: Position update feature plan
+├── ai-specs/                  # Development standards and specifications
+│   ├── base-standards.mdc       # Core development rules (single source of truth)
+│   ├── api-specs.yml            # API specifications (link to handbook)
+│   ├── backend-standards.mdc    # Standards for backend development (link to handbook)
+│   ├── frontend-standards.mdc   # Standards for frontend development (link to handbook)
+│   ├── doc-standards.mdc        # Standards for documentation (link to handbook)
+│   ├── data-model.md            # Database and domain models (link to handbook)
+│   ├── development_guide.md     # Development flow guide (link to handbook)
+│   └── prompts/                 # Folder for reusable prompt templates
+│   └── changes/                 # Folder for feature implementation plans
+│       └── BDD-6510.md             # Demo: Sample feature plan
 │
-├── AGENTS.md                    # Generic agent configuration
+├── opencode/                  # Opencode specific config
+│   ├── opencode.json            # Opencode main agent configuration
+│   ├── agents/                  # Folder for custom agents
+│   │   ├── backend-developer.md    # Sample agent to develop backend tasks
+│   │   ├── frontend-developer.md   # Sample agent to develop frontend tasks
+│   │   └── review.md               # Sample agent for reviews
+│   └── command/                 # Folder for custom commands
+│       ├── develop-backend.md      # Sample command to develop a backend ticket
+│       ├── develop-frontend.md     # Sample command to develop a frontend ticket
+│       ├── enrich.md               # Sample command to enrich a Jira ticket
+│       ├── meta-prompt.md          # Sample command to improve introduced prompt
+│       ├── plan-backend.md         # Sample command to plan a backend ticket
+│       ├── plan-frontend.md        # Sample command to plan a frontend ticket
+│       └── update-docs.md          # Sample command to update handbook documentation
+|
+├── AGENTS.md                    # Generic agent configuration (opencode)
 ├── CLAUDE.md                    # Claude-specific configuration
 ├── codex.md                     # GitHub Copilot/Codex configuration
 └── GEMINI.md                    # Gemini-specific configuration
@@ -58,6 +72,7 @@ cp -r LIDR-ai-specs/* your-project/
 ### 2. Verify Configuration
 
 Your AI copilot will automatically load:
+- **Opencode (default)**: `AGEND.md` → `ai-specs/specs/base-standards.mdc`
 - **Claude/Cursor**: `CLAUDE.md` → `ai-specs/specs/base-standards.mdc`
 - **GitHub Copilot**: `codex.md` → `ai-specs/specs/base-standards.mdc`
 - **Gemini**: `GEMINI.md` → `ai-specs/specs/base-standards.mdc`
